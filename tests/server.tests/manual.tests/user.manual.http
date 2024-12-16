@@ -1,0 +1,68 @@
+// Rest tests for users retrieval
+
+// valid and invalid tokens
+@authTokenInvalid = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImphbmVAbWUuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkQzhGamdCazhlUjgzMmNuSlgveDRidWh3YVhBaWJhUkxWUDBlNGs0Q1lGcW9lV0c1VlYycjYiLCJpYXQiOjE3MzEwMzI5Mjh9.3GEcAq4wJ_3h-skpjJQ5pocLaJ1lfp4mo7dA3r1BGKM
+@authTokenValid = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImphbmVAbWUuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkQzhGamdCazhlUjgzMmNuSlgveDRidWh3YVhBaWJhUkxWUDBlNGs0Q1lGcW9lV0c1VlYycjYiLCJpYXQiOjE3MzEwMzI5Mjh9.3GEcAq4wJ_3h-skpjJQ5pocLaJ1lfp4mo7dA3r1BGKQ
+
+###
+
+// user leaves the chat room with valid token
+DELETE http://localhost:8080/chat/users/zijieh4@uci.edu
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+###
+
+// try to delete a non-existing user with valid token
+DELETE http://localhost:8080/chat/users/nonexisting@abc.com
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+###
+
+// retrieve a user with a valid token and user exists in the database
+GET http://localhost:8080/chat/users/hzj010427@gmail.com
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+###
+
+// retrieve a user with an invalid token and user exists in the database
+GET http://localhost:8080/chat/users/hzj010427@gmail.com
+Content-Type: application/json
+Authorization: Bearer {{authTokenInvalid}}
+
+###
+
+// retrieve a user with a valid token and user does not exist in the database
+GET http://localhost:8080/chat/users/hzj010428@gmail.com
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+###
+
+// retrieve a user with an invalid token and user does not exist in the database
+GET http://localhost:8080/chat/users/hzj010428@gmail.com
+Content-Type: application/json
+Authorization: Bearer {{authTokenInvalid}}
+
+###
+
+// username is not provided should retrieve all users
+GET http://localhost:8080/chat/users
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+###
+
+// retrieve all users with a valid token
+GET http://localhost:8080/chat/usernames
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+###
+
+// retrieve all users with an invalid token
+GET http://localhost:8080/chat/usernames
+Content-Type: application/json
+Authorization: Bearer {{authTokenInvalid}}

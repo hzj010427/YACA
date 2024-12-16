@@ -1,0 +1,123 @@
+meta(charset="utf-8")
+meta(name="author" content="FirstName LastName (andrewid)")
+meta(name="viewport" content="width=device-width, initial-scale=1.0")
+meta(name="description" content="18351 class project")
+link(href="../styles.css" rel="stylesheet" type="text/css")
+script(src="../chat-pug.ts" type="module" defer="")
+title YACA Chat Room (Pug)
+style.
+    .inputContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #5a7ea3;
+    padding: 2rem;
+    border: 0.15rem solid;
+    margin: 0.2rem;
+    gap: 1rem;
+    }
+
+    .msgContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(231, 231, 230);
+    border-radius: 1.5rem;
+    padding: 1rem;
+    margin: 0.5rem;
+    margin-right: 10%;
+    gap: 0.5rem;
+    }
+
+    .myMsgContainer {
+    margin-right: 0;
+    margin-left: 10%;
+    }
+
+    .msg,
+    .myMsg {
+    background-color: #6fa8dc;
+    border-radius: 0.6rem;
+    border: 0.15rem solid black;
+    color: white;
+    padding: 0.3rem;
+    width: fit-content;
+    position: relative;
+    }
+
+    .msg::before,
+    .myMsg::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 0.4rem;
+    border-style: solid;
+    }
+
+    .msg::before {
+    left: -0.8rem;
+    border-color: transparent black transparent transparent;
+    }
+
+    .myMsg::after {
+    right: -0.8rem;
+    border-color: transparent transparent transparent black;
+    }
+
+    .date {
+    background-color: white;
+    border: 0.15rem solid black;
+    padding: 0.1rem;
+    font-size: 0.8rem;
+    width: fit-content;
+    }
+
+    .myDate {
+    align-self: flex-end;
+    }
+
+    .avatar {
+    background-color: #085394;
+    border-radius: 50%;
+    border: 0.15rem solid black;
+    color: white;
+    padding: 0.3rem;
+    width: fit-content;
+    height: fit-content;
+    flex-shrink: 0;
+    }
+
+    .msgItem {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    }
+
+    .myMsgItem {
+    flex-direction: row-reverse;
+    }
+
+    #existingChatMessages {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border: 0.15rem solid;
+    margin: 0.2rem;
+    overflow-y: scroll;
+    }
+
+    #postBtn {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    }
+
+    #postBtn:active {
+    transform: scale(0.8);
+    }
+
+    #leaveBtn {
+    background-color: #f44336;
+    color: white;
+    }

@@ -1,0 +1,44 @@
+// REST tests for the reply functionality
+
+// valid and invalid tokens
+@authTokenInvalid = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImphbmVAbWUuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkQzhGamdCazhlUjgzMmNuSlgveDRidWh3YVhBaWJhUkxWUDBlNGs0Q1lGcW9lV0c1VlYycjYiLCJpYXQiOjE3MzEwMzI5Mjh9.3GEcAq4wJ_3h-skpjJQ5pocLaJ1lfp4mo7dA3r1BGKM
+@authTokenValid = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImphbmVAbWUuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAka0cvVkNJSHJPcjZEaEVXQjZ4bm0vT1pqN29FSXRPSExkQkxwSElmTVhHQmUwMWR1SS9XVW0iLCJpYXQiOjE3MzI0MTE3MDEsImV4cCI6MTc2Mzk0NzcwMX0.bIMunlAbVAB14bky8RFpdJxXV4hzR-0zpoyshWwt2NA
+// update the message id after posting a message
+@messageId = 0685cd8f-374c-4985-b8ce-19ac45182b75
+###
+
+// user posting reply with invalid token should fail
+POST http://localhost:8080/chat/messages/{{messageId}}/replies
+Content-Type: application/json
+Authorization: Bearer {{authTokenInvalid}}
+
+{
+    "author": "jane@me.com",
+    "text": "a reply to the message"
+}
+
+###
+
+// user posting reply with valid token should succeed
+POST http://localhost:8080/chat/messages/{{messageId}}/replies
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "author": "jane@me.com",
+    "text": "a reply to the message"
+}
+
+###
+
+// user retrieving replies with invalid token should fail
+GET http://localhost:8080/chat/messages/{{messageId}}/replies
+Authorization: Bearer {{authTokenInvalid}}
+
+###
+
+// user retrieving replies with valid token should succeed
+GET http://localhost:8080/chat/messages/{{messageId}}/replies
+Authorization: Bearer {{authTokenValid}}
+
+###

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="FirstName LastName (andrewid)" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="18351 class project" />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link href="../styles.css" rel="stylesheet" type="text/css" />
+  <script src="../auth.ts" type="module" defer=""></script>
+  <title>YACA Authentication</title>
+  <style>
+    #authForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1rem 2rem;
+      justify-content: center;
+      background-color: #5a7ea3;
+      border: 0.15rem solid;
+      box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.3);
+    }
+
+    .btnContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pwdContainer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    #togglePwd {
+      margin-left: -35px;
+      align-self: center;
+      cursor: pointer;
+      color: #000;
+    }
+
+    #logoutBtn {
+      visibility: hidden;
+    }
+  </style>
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <a href="index.html" id="homeBtn" class="Btn">Home</a>
+    <div class="header-name">Enter Chat Room</div>
+    <a href="index.html" id="logoutBtn" class="Btn">Logout</a>
+  </div>
+
+  <form id="authForm">
+    <div class="userInfo">
+      <div class="formInput">
+        <label for="myName">Name: </label>
+        <input type="text" id="myName" class="inputBox" placeholder="Required for registration" />
+      </div>
+      <div class="formInput">
+        <label for="myEmail">Email: </label>
+        <input type="text" id="myEmail" class="inputBox" placeholder="me@somedomain.com" />
+      </div>
+      <div class="formInput">
+        <label for="myPassword">Password: </label>
+        <div class="pwdContainer">
+          <input type="password" id="myPassword" class="inputBox" placeholder="a strong password" />
+          <i class="fas fa-eye" id="togglePwd" title="Show Password"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="btnContainer">
+      <button type="submit" id="registerBtn" class="Btn">Register</button>
+      <button type="submit" id="loginBtn" class="Btn">Login</button>
+    </div>
+  </form>
+</body>
+
+</html>

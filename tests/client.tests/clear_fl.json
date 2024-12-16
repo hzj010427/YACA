@@ -1,0 +1,218 @@
+{
+    "title": "clear_fl",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 519,
+            "height": 931,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "waitForExpression",
+            "expression": "(() => { localStorage.setItem('friends', JSON.stringify([])); return true; }) ()"
+        },
+        {
+            "type": "navigate",
+            "url": "http://127.0.0.1:8080/pages/friends.html",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://127.0.0.1:8080/pages/friends.html",
+                    "title": "YACA Friend List"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#newFriendName"
+                ]
+            ],
+            "offsetY": 8.03125,
+            "offsetX": 51.916664123535156
+        },
+        {
+            "type": "change",
+            "value": "Zijie Huang",
+            "selectors": [
+                [
+                    "#newFriendName"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#newFriendEmail"
+                ]
+            ],
+            "offsetY": 16.03125,
+            "offsetX": 58.33331298828125
+        },
+        {
+            "type": "change",
+            "value": "hzj010427@gmail.com",
+            "selectors": [
+                [
+                    "#newFriendEmail"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#addFriendBtn"
+                ],
+                [
+                    "text/Add Friend"
+                ]
+            ],
+            "offsetY": 23.11456298828125,
+            "offsetX": 69.38541412353516
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#newFriendName"
+                ]
+            ],
+            "offsetY": 8.03125,
+            "offsetX": 135.91666412353516
+        },
+        {
+            "type": "change",
+            "value": "Zijie Huang",
+            "selectors": [
+                [
+                    "#newFriendName"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#newFriendEmail"
+                ]
+            ],
+            "offsetY": 0.03125,
+            "offsetX": 112.33331298828125
+        },
+        {
+            "type": "change",
+            "value": "zijieh4@uci.edu",
+            "selectors": [
+                [
+                    "#newFriendEmail"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#addFriendBtn"
+                ],
+                [
+                    "text/Add Friend"
+                ]
+            ],
+            "offsetY": 20.11456298828125,
+            "offsetX": 49.385414123535156
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "div:nth-of-type(1) > label"
+                ],
+                [
+                    "text/Friend's Name:"
+                ]
+            ],
+            "offsetY": 16.03125,
+            "offsetX": 107.91666412353516
+        },
+        {
+            "type": "change",
+            "value": "Zijie Huang",
+            "selectors": [
+                [
+                    "#newFriendName"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#newFriendEmail"
+                ]
+            ],
+            "offsetY": 18.03125,
+            "offsetX": 60.33331298828125
+        },
+        {
+            "type": "change",
+            "value": "zijieh10@uci.edu",
+            "selectors": [
+                [
+                    "#newFriendEmail"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#addFriendBtn"
+                ],
+                [
+                    "text/Add Friend"
+                ]
+            ],
+            "offsetY": 21.11456298828125,
+            "offsetX": 73.38541412353516
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#clearAllBtn"
+                ],
+                [
+                    "text/Clear List"
+                ]
+            ],
+            "offsetY": 42.11456298828125,
+            "offsetX": 56.354156494140625
+        },
+        {
+            "type": "waitForExpression",
+            "expression": "!(new RegExp(\"Zijie Huang\", \"i\").test(document.body.textContent))"
+        }
+    ]
+}

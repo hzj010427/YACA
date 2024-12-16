@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="FirstName LastName (andrewid)" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="18351 class project" />
+    <link href="../styles.css" rel="stylesheet" type="text/css" />
+    <script src="../friends.ts" type="module" defer=""></script>
+    <title>YACA Friend List</title>
+    <style>
+        .friendInfo {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            border: 0.15rem solid;
+            margin: 1rem;
+            border-radius: 1rem;
+            background-color: #7db8f3;
+        }
+
+        .friendInfoHeader {
+            display: flex;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .inputContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .selectFriend {
+            appearance: none;
+            border: 0.15rem solid white;
+            border-radius: 25%;
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.8rem;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .selectFriend:checked::before {
+            display: block;
+            content: '✔';
+            font-size: 0.6rem;
+            text-align: center;
+            color: white;
+        }
+
+        .friendName {
+            flex-grow: 1;
+        }
+
+        .friendEmail {
+            padding: 1rem;
+            border: 0.15rem solid;
+            border-radius: 1.5rem;
+            background-color: white;
+            font-size: 1rem;
+            width: fit-content;
+            margin-top: 0.5rem;
+        }
+
+        .cancelButton {
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 50%;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .cancelButton:hover {
+            background-color: white;
+            color: #7db8f3;
+        }
+
+        #newFriendForm {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #5a7ea3;
+            padding: 2rem;
+            border: 0.15rem solid;
+            margin: 0.2rem;
+        }
+
+        #friendList {
+            flex-grow: 1;
+        }
+
+        #logoutBtn {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="index.html" id="homeBtn" class="Btn">Home</a>
+        <div class="header-name">My Friend List</div>
+        <a href="index.html" id="logoutBtn" class="Btn">Logout</a>
+    </div>
+
+    <div id="friendList">
+        <div class="friendInfo">
+            <div class="friendInfoHeader">
+                <input type="checkbox" class="selectFriend" name="selectFriend">
+                <span class="friendName">John Doe</span>
+                <button class="cancelButton">&times;</button>
+            </div>
+            <span class="friendEmail">john.doe@somewhere.com</span>
+        </div>
+        <div class="friendInfo">
+            <div class="friendInfoHeader">
+                <input type="checkbox" class="selectFriend" name="selectFriend">
+                <span class="friendName">Sarah Smith</span>
+                <button class="cancelButton">&times;</button>
+            </div>
+            <span class="friendEmail">sarahs@blah.org</span>
+        </div>
+    </div>
+
+    <form id="newFriendForm">
+        <div class="inputContainer">
+            <div class="formInput">
+                <label for="newFriendName">Friend's Name: </label>
+                <input type="text" id="newFriendName" class="inputBox" placeholder="Friend's first and last name" />
+            </div>
+            <div class="formInput">
+                <label for="newFriendEmail">Friend's Email: </label>
+                <input type="text" id="newFriendEmail" class="inputBox" placeholder="myfriend@somedomain.com" />
+            </div>
+        </div>
+        <input type="submit" id="addFriendBtn" class="Btn" value="Add Friend" />
+    </form>
+</body>
+
+</html>

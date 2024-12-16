@@ -1,0 +1,103 @@
+{
+    "title": "delete_friend",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1163,
+            "height": 945,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "waitForExpression",
+            "expression": "(() => { localStorage.setItem('friends', JSON.stringify([])); return true; }) ()"
+        },
+        {
+            "type": "navigate",
+            "url": "http://127.0.0.1:8080/pages/friends.html",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://127.0.0.1:8080/pages/friends.html",
+                    "title": "YACA Friend List"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#newFriendName"
+                ]
+            ],
+            "offsetY": 5.375,
+            "offsetX": 73.09375
+        },
+        {
+            "type": "change",
+            "value": "Zijie Huang",
+            "selectors": [
+                [
+                    "#newFriendName"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#newFriendEmail"
+                ]
+            ],
+            "offsetY": 19.375,
+            "offsetX": 91.5
+        },
+        {
+            "type": "change",
+            "value": "hzj010427@gmail.com",
+            "selectors": [
+                [
+                    "#newFriendEmail"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "#addFriendBtn"
+                ],
+                [
+                    "text/Add Friend"
+                ]
+            ],
+            "offsetY": 23.78125,
+            "offsetX": 99.5625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "button"
+                ],
+                [
+                    "text/×"
+                ]
+            ],
+            "offsetY": 10.40625,
+            "offsetX": 9.34375
+        },
+        {
+            "type": "waitForExpression",
+            "expression": "!(new RegExp(\"Zijie Huang\", \"i\").test(document.body.textContent))"
+        }
+    ]
+}

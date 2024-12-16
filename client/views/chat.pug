@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    include includes/commonHead.pug
+  body
+    h1 Pug Version
+    .header
+      a(href="../pages/index.html" id="homeBtn" class="Btn") Home
+      .header-name Chat away with YACA (Pug)!
+      a(href="../pages/index.html" id="logoutBtn" class="Btn") Logout
+      button(id="leaveBtn" class="Btn") Leave
+    #existingChatMessages
+      if messages && messages.length
+        each msg in messages
+          - const isMyMessage = msg.author === author;
+          .msgContainer(class=isMyMessage ? 'myMsgContainer' : 'msgContainer', data-message-id=msg._id)
+            .date(class=isMyMessage ? 'myDate' : 'date')= msg.timestamp
+            .msgItem(class=isMyMessage ? 'myMsgItem' : 'msgItem')
+              span.avatar= msg.displayName
+              span(class=isMyMessage ? 'myMsg' : 'msg')= msg.text
+    .inputContainer
+      textarea#chatMessage.inputBox(placeholder="Add your chat message here!")
+      input(type="image" id="postBtn" src="../assets/paper-plane.png" alt="Post" title="Post")

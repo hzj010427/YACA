@@ -1,0 +1,188 @@
+// REST tests for the chat room functionality
+
+// valid and invalid tokens
+@authTokenInvalid = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImphbmVAbWUuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkQzhGamdCazhlUjgzMmNuSlgveDRidWh3YVhBaWJhUkxWUDBlNGs0Q1lGcW9lV0c1VlYycjYiLCJpYXQiOjE3MzEwMzI5Mjh9.3GEcAq4wJ_3h-skpjJQ5pocLaJ1lfp4mo7dA3r1BGKM
+@authTokenValid = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImphbmVAbWUuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAka0cvVkNJSHJPcjZEaEVXQjZ4bm0vT1pqN29FSXRPSExkQkxwSElmTVhHQmUwMWR1SS9XVW0iLCJpYXQiOjE3MzI0MTE3MDEsImV4cCI6MTc2Mzk0NzcwMX0.bIMunlAbVAB14bky8RFpdJxXV4hzR-0zpoyshWwt2NA
+// update the message id after posting a message
+@messageId = b20deb04-6f5f-4c93-8133-a39bc032ad9e
+###
+
+// user retrieving messages with invalid token should fail
+GET http://localhost:8080/chat/messages
+Authorization: Bearer {{authTokenInvalid}}
+
+###
+
+// user retrieving messages with valid token should succeed
+GET http://localhost:8080/chat/messages
+Authorization: Bearer {{authTokenValid}}
+
+###
+
+// user posting with invalid token should fail
+POST http://localhost:8080/chat/messages
+Content-Type: application/json
+Authorization: Bearer {{authTokenInvalid}}
+
+{
+    "author": "jane@me.com",
+    "text": "a random post for valid authenticated user"
+}
+
+###
+
+// user posting with valid token should succeed
+POST http://localhost:8080/chat/messages
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "author": "jane@me.com",
+    "text": "a random post for valid authenticated user"
+}
+
+###
+
+// user posting a empty message with valid token should fail
+POST http://localhost:8080/chat/messages
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "author": "jane@me.com",
+    "text": ""
+}
+
+###
+
+// missing text field in the message should fail
+POST http://localhost:8080/chat/messages
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "author": "jane@me.com"
+}
+
+###
+
+// missing author field in the message should fail
+POST http://localhost:8080/chat/messages
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "text": "a random post for valid authenticated user"
+}
+
+###
+
+// empty author field in the message should fail
+POST http://localhost:8080/chat/messages
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "author": "",
+    "text": "a random post for valid authenticated user"
+}
+
+###
+
+// user posting for another user with valid token should fail
+POST http://localhost:8080/chat/messages
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "author": "jane@you.com",
+    "text": "a random post for another user"
+}
+
+###
+
+// user posting for non-existent user with valid token should fail
+POST http://localhost:8080/chat/messages
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "author": "jane@her.com",
+    "text": "a random post for non-existent user"
+}
+
+###
+
+// testing the pug template with valid token
+GET http://localhost:8080/chat/pug
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+###
+
+// testing the pug template with invalid token
+GET http://localhost:8080/chat/pug
+Content-Type: application/json
+Authorization: Bearer {{authTokenInvalid}}
+
+###
+
+// user deleting message with invalid token should fail
+DELETE http://localhost:8080/chat/messages/{{messageId}}
+Authorization: Bearer {{authTokenInvalid}}
+
+###
+
+// user deleting message with valid token should succeed
+DELETE http://localhost:8080/chat/messages/{{messageId}}
+Authorization: Bearer {{authTokenValid}}
+
+###
+
+// user adding reactions with invalid token should fail
+PATCH http://localhost:8080/chat/messages/{{messageId}}/reactions
+Content-Type: application/json
+Authorization: Bearer {{authTokenInvalid}}
+
+{
+    "author": "jane@me.com",
+    "type": "like"
+}
+
+###
+
+// user adding a invalid reaction with valid token should fail
+PATCH http://localhost:8080/chat/messages/{{messageId}}/reactions
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "author": "jane@me.com",
+    "type": "invalid"
+}
+
+###
+
+// user adding reactions with valid token should succeed
+PATCH http://localhost:8080/chat/messages/{{messageId}}/reactions
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "author": "jane@me.com",
+    "type": "like"
+}
+
+###
+
+// user deleting reactions with valid token should succeed
+PATCH http://localhost:8080/chat/messages/{{messageId}}/reactions
+Content-Type: application/json
+Authorization: Bearer {{authTokenValid}}
+
+{
+    "author": "jane@me.com",
+    "type": "like"
+}
+
+###

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <script src="../history.ts" module type="module" defer=""></script>
+    <!-- Custom manual styling to be deleted next week when incorporating flexboxes-->
+    <style>
+        .header, 
+        .section,
+        .update-card,
+        .add-note-form {
+            border: 1px solid gray; /* border color to indicate structure */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: gray;
+        }
+
+        .header {
+            background-color: lightgray;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .header-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: darkslategray;
+        }
+
+        .header-nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .header-nav-link {
+            margin: 0 1rem;
+            font-size: 1rem;
+            color: gray;
+            text-decoration: none;
+        }
+
+        .header-nav-link:hover {
+            color: darkslategray;
+            text-decoration: underline;
+        }
+
+        .section {
+            background-color: rgb(241, 241, 241);
+            margin: 1.5rem auto;
+            padding: 1rem;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid gray;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: darkslategray;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-description {
+            font-size: 1rem;
+        }
+
+        .stopwatch__time {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: darkslategray;
+        }
+
+        .stopwatch__buttons {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+        }
+
+        .update-card {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: white;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        .update-card-time {
+            font-size: 0.9rem;
+            background-color: lightyellow;
+            padding: 0.25rem;
+            border-radius: 5px;
+        }
+
+        .update-card-info {
+            margin-left: 1rem;
+        }
+
+        .update-card-info-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: darkslategray;
+        }
+
+        .update-card-info-description {
+            font-size: 1rem;
+            margin: 0.5rem 0rem 0rem 0rem;
+        }
+
+        .add-note-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            border: 1px solid gray;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        .add-note-title-input,
+        .add-note-textarea {
+            padding: 0.75rem;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+            width: 80%;
+            font-size: 1rem;
+        }
+
+        .add-note-textarea {
+            height: 5rem;
+        }
+
+        .button-primary {
+            width: 6rem;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 5px;
+            background-color: darkslategray;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        .button-primary:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-name">YACA History</div>
+        <div class="header-nav">
+            <a class="header-nav-link" href="index.html">Home</a>
+            <a class="header-nav-link" href="friends.html">Friend List</a>
+            <a class="header-nav-link" href="auth.html">Login</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <span class="section-title">About YACA</span>
+        <p class="section-description">YACA is a web-based chat application...</p>
+    </div>
+
+    <div class="section">
+        <span class="section-title">Author</span>
+        <p class="section-description">This web application is created by...</p>
+    </div>
+
+    <div id="stopwatch" class="section">
+        <span class="section-title">Stopwatch</span>
+        <div id="time" class="stopwatch__time">00:00:00</div>
+        <div class="stopwatch__buttons">
+            <button id="startStopBtn">Start</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+    </div>
+
+    <div id="notes" class="section">
+        <span class="section-title">Notes</span>
+        <section class="notes-container">
+        <div class="update-card">
+            <span class="update-card-time">Sep 05</span>
+            <div class="update-card-info">
+                <span class="update-card-info-title">Version 0.0</span>
+                <p class="update-card-info-description">HTML demo</p>
+            </div>
+        </div>
+        <div class="update-card">
+            <span class="update-card-time">Sep 05</span>
+            <div class="update-card-info">
+                <span class="update-card-info-title">Version 0.1</span>
+                <p class="update-card-info-description">Another one</p>
+            </div>
+        </div>
+        </section>
+
+        <form id="addNoteForm" class="add-note-form">
+            <input id="noteTitleInput" class="add-note-title-input" type="text" placeholder="Add title here..." required>
+            <textarea id="notesTextarea" class="add-note-textarea" placeholder="Add your update notes here..." required></textarea>
+            <button type="submit" class="button-primary">Send</button>
+        </form>
+    </div>
+</body>
+</html>

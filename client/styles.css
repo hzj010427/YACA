@@ -1,0 +1,62 @@
+/* Webpage */
+html {
+    font-family: Comic Sans MS;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-name {
+    margin: 1rem;
+    font-size: 2rem;
+    font-family: Comic Sans MS;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Button */
+.Btn {
+    width: auto;
+    text-decoration: none;
+    padding: 0.8rem;
+    margin: 1rem;
+    font-size: 1.2rem;
+    font-family: Comic Sans MS;
+    font-weight: 500;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    border: 0.15rem solid black;
+    box-shadow: 0.2rem 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.Btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* Body */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 1rem;
+}
+
+/* Form */
+.formInput {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    color: white;
+}
+
+.inputBox {
+    border: 0.15rem solid black;
+    padding: 0.3rem;
+    width: 100%;
+}
+  
