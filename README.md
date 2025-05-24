@@ -33,25 +33,3 @@ YACA implements a simple chat web app with a local friend list.
 ## Installation
 
 Run `npm install` and then `npm update`. Fix vulnerabilities with `npm audit fix --force`. If `package-lock.json` is corrupted or out of date, regenerate it by running `npm update`.
-
-# Shh!
-
-SRV_ID: srv-csppg15ds78s73c1nncg
-
-SRV_KEY: OmVX0vDRDLM
-
-SRV_TK: rnd_jr7G6ngcy0QJwT6d8N1EkVxmv9BX
-
-DB_URL: mongodb+srv://zijieh:MOpjDr3R8Iz44wZm@cluster0.wzunn.mongodb.net
-
-PROD_DB: /yacaPROD?retryWrites=true&w=majority
-
-DEV_DB: /yacaDEV?retryWrites=true&w=majority
-
-RENDER_URL: https://yaca-zijieh-f24.onrender.com
-
-UPSTREAM_PAT: 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
-
-# Copyright and Academic Integrity Policy
-
-This starter code is copyrighted by Hakan Erdogmus (c), 2023-2024, and is associated with the CMU ECE courses 18351 and 18651. Just like the remaining course materials, any forks and other derivate work, including the final version of your project or any part thereof, are a combination of protected intellectual property and solutions to course assignments that cannot be shared according to the course Academic Integrity Policy. You can keep a local, private clone for your own future refence, or store this clone on a private repo in the cloud, however you cannot publish or share the project repo, any artifacts associaited with it, whether wholly or in part, in any format with anyone, including your classmates and the general public. The prohibition stated are intended to protect the integrity of the course's future offerings. Violations will be investigated under the Academic Integrity Policy and proper sanctions will be applied. Note that Academic Integrity Violations are not subject to any statute of limitations, and can be assessed even after you graduate with sanctions that apply retroactively and that may be as severe as the retraction of a granted degree. Review the course and university Academic Integrity Policies in the Syllabus document for further details.
